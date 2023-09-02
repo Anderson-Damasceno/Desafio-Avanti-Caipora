@@ -1,0 +1,2 @@
+const jogadorRouter = ''
+export {jogadorRouter};

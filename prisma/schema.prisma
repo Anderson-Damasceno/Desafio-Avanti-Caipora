@@ -9,3 +9,39 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Jogador {
+  id Int @id @default(autoincrement())
+  nome String @db.VarChar(200)
+  nascimento DateTime
+  time Time @relation(fields: [timeId], references: [id])
+  timeId Int
+  @@map("jogadores")
+}
+
+model Time {
+  id Int @id @default(autoincrement())
+  nome String @db.VarChar(200) 
+  fundacao DateTime
+  jogadores Jogador[]
+  campeonatos TimeCampeonato[]
+  @@map("times")
+}
+
+model Campeonato{
+  id Int @id @default(autoincrement())
+  nome String @db.VarChar(200)
+  inicio DateTime
+  fim DateTime
+  times TimeCampeonato[]
+  @@map("campeonatos")
+}
+
+model TimeCampeonato {
+  time Time @relation(fields: [timeId], references: [id])
+  timeId Int
+  campeonato Campeonato @relation(fields: [campeonatoId], references: [id])
+  campeonatoId Int
+
+  @@id([timeId, campeonatoId])
+}

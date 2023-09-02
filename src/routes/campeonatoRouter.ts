@@ -1,0 +1,2 @@
+const campeonatoRouter = ''
+export {campeonatoRouter}
