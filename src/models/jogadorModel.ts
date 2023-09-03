@@ -1,9 +1,8 @@
-import { primaClient } from "../database/prismaClient"; 
+import { prismaClient } from "../database/prismaClient"; 
 
- function async createJogador(id, nome, nascimento, time, timeId){
+async function createJogador(id:number, nome:string, nascimento:any, time:any, timeId:any){
 
-
-    const jogador = await primaClient.jogador.create({
+    const jogador = await prismaClient.jogador.create({
         data: {
            id,
            nome,

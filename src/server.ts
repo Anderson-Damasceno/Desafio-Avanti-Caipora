@@ -1,17 +1,17 @@
 import express from 'express';
 import 'dotenv/config'
-import { router } from './routes/jogadorRouter';
 import { timeRouter } from './routes/timeRouter';
+import { campeonatoRouter } from './routes/campeonatoRouter';
 
 
 const server = express();
 
 server.use(express.json());
 
-server.use(router);
 server.use(timeRouter);
+server.use(campeonatoRouter);
 
 
-const PORT = process.env.PORT;
+//const PORT = process.env.PORT;
 
-server.listen(PORT || 3000, () => console.log(`Server running on port ${PORT}`));
+server.listen("3000", () => console.log(`Server running on port 3000`));
