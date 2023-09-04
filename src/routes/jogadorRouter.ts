@@ -6,7 +6,3 @@ router.post("/jogador", CreateJogadorController)
 
 export {router}
 
- 
-/*const jogadorRouter = ''
-export {jogadorRouter};
-*/
