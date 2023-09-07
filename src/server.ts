@@ -2,6 +2,7 @@ import express from 'express';
 import 'dotenv/config'
 import { timeRouter } from './routes/timeRouter';
 import { campeonatoRouter } from './routes/campeonatoRouter';
+import { jogadorRouter } from './routes/jogadorRouter';
 
 
 const server = express();
@@ -10,6 +11,7 @@ server.use(express.json());
 
 server.use(timeRouter);
 server.use(campeonatoRouter);
+server.use(jogadorRouter)
 
 
 //const PORT = process.env.PORT;
