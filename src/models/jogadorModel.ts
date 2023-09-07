@@ -1,18 +1,19 @@
-import { prismaClient } from "../database/prismaClient"; 
+import { prismaClient } from "../database/prismaClient";
 
-async function createJogador(id:number, nome:string, nascimento:any, time:any, timeId:any){
+class JogadorModel {
 
-    const jogador = await prismaClient.jogador.create({
-        data: {
-           id,
-           nome,
-           nascimento,
-           time,
-           timeId  
-        }
-    })
-    return jogador
+    public async create(id: number, nome: string, nascimento: Date, timeId: number) {
+
+        const jogador = await prismaClient.jogador.create({
+            data: {
+                id,
+                nome,
+                nascimento,
+                timeId
+            }
+        });
     
+        return jogador;    
     }
     
     public async findById(id: number) {
@@ -33,7 +34,7 @@ async function createJogador(id:number, nome:string, nascimento:any, time:any, t
         
     }
 
-    public async update(id:number, nome:string, nascimento:any, time:any, timeId:any) {
+    public async update(id: number, nome: string, nascimento: Date, timeId: number) {
 
         const jogador = await prismaClient.jogador.update({
             where: { id },
@@ -41,7 +42,6 @@ async function createJogador(id:number, nome:string, nascimento:any, time:any, t
                 id,
                 nome,
                 nascimento,
-                time,
                 timeId
             }
         });
@@ -51,12 +51,13 @@ async function createJogador(id:number, nome:string, nascimento:any, time:any, t
 
     public async delete(id: number) {
 
-        const time = await prismaClient.jogador.delete({
+        const jogador = await prismaClient.jogador.delete({
             where: { id }
         });  
     }
 
     
 
+}
 
-export{ createJogador }
+export { JogadorModel };
