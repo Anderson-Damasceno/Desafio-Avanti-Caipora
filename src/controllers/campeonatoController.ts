@@ -11,7 +11,7 @@ class CampeonatoController{
 
             const {id, nome, inicio, fim, time } = req.body;
 
-            const campeonato = await campeonatoModel.create(id, nome, inicio, fim, time);
+            const campeonato =  await campeonatoModel.create(id, nome, inicio, fim, time);
 
             return res.status(StatusCodes.OK).json(campeonato);
             
