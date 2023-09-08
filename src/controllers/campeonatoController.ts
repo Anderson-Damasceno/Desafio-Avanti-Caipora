@@ -9,9 +9,9 @@ class CampeonatoController{
     async create(req: Request, res: Response) {
         try {
 
-            const {id, nome, inicio, fim, time } = req.body;
+            const {id, nome, inicio, fim } = req.body;
 
-            const campeonato = await campeonatoModel.create(id, nome, inicio, fim, time);
+            const campeonato = await campeonatoModel.create(id, nome, inicio, fim);
 
             return res.status(StatusCodes.OK).json(campeonato);
             
@@ -50,9 +50,9 @@ class CampeonatoController{
         try {
 
             const { id } = req.params;
-            const { nome, fundacao, inicio, fim, time } = req.body;
+            const { nome, fundacao, inicio, fim } = req.body;
 
-            const campeonato = await campeonatoModel.update(parseInt(id), nome, inicio, fim, time);
+            const campeonato = await campeonatoModel.update(parseInt(id), nome, inicio, fim);
 
             return res.status(StatusCodes.OK).json(campeonato);
             

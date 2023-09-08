@@ -2,15 +2,14 @@ import { prismaClient } from "../database/prismaClient";
 
 class CampeonatoModel {
 
-    public async create(id: number, nome: string, inicio: string, fim:any , times: any ) {
+    public async create(id: number, nome: string, inicio: Date, fim:Date) {
 
         const campeonato = await prismaClient.campeonato.create({
             data: {
                 id,
                 nome,
                 inicio,
-                fim,
-                times
+                fim
             }
         });
     
@@ -35,7 +34,7 @@ class CampeonatoModel {
         
     }
 
-    public async update(id: number, nome: string, inicio:any, fim:any, times:any) {
+    public async update(id: number, nome: string, inicio:Date, fim:Date) {
 
         const campeonato = await prismaClient.campeonato.update({
             where: { id },
@@ -43,8 +42,7 @@ class CampeonatoModel {
                 id,
                 nome,
                 inicio,
-                fim,
-                times,
+                fim
             }
         });
     
