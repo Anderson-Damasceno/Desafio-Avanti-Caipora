@@ -50,7 +50,7 @@ class CampeonatoController{
         try {
 
             const { id } = req.params;
-            const { nome, fundacao, inicio, fim } = req.body;
+            const { nome, inicio, fim } = req.body;
 
             const campeonato = await campeonatoModel.update(parseInt(id), nome, inicio, fim);
 
