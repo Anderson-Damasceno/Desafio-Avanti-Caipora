@@ -2,7 +2,7 @@ import { prismaClient } from "../database/prismaClient";
 
 class TimeModel {
 
-    public async create(id: number, nome: string, fundacao: string) {
+    public async create(id: number, nome: string, fundacao: Date) {
 
         const time = await prismaClient.time.create({
             data: {
@@ -33,7 +33,7 @@ class TimeModel {
         
     }
 
-    public async update(id: number, nome: string, fundacao: string) {
+    public async update(id: number, nome: string, fundacao: Date) {
 
         const time = await prismaClient.time.update({
             where: { id },
