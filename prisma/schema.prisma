@@ -1,6 +1,9 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
 
+// Conexão do ORM com o banco de dados
+// Criação das Entidades Jogador, Time e Campeonato
+// Criaçãoda 'relation table' TimeCampeonato
+// O banco de dados utilizado foi o postgresql através do uso de Docker (vide docker-compose-yml)
+// Vide diretório assets
 generator client {
   provider = "prisma-client-js"
 }
