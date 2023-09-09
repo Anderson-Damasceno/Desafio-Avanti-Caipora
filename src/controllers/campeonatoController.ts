@@ -4,8 +4,14 @@ import { CampeonatoModel } from "../models/campeonatoModel";
 
 const campeonatoModel = new CampeonatoModel();
 
+/*Classe para lidar com as Requisições e Respostas vindas do cliente
+e Validação de dados*/
 class CampeonatoController{
 
+/*A partir dos dados recebidos do cliente via corpo da requisição é criado 
+uma entidade campeonato e retorna ao cliente o código de status e a Entidade
+no formato json. Caso haja erro envia-se o codigo de status apropriado
+e envia-se mensagem de erro amigável*/
     async create(req: Request, res: Response) {
         try {
 
@@ -20,6 +26,10 @@ class CampeonatoController{
         }
     }
 
+/*A partir dos dados recebidos do cliente via corpo da requisição busca-se
+uma entidade campeonato apartir do Id e retorna ao cliente o código de status
+e a Entidade no formato json. Caso haja erro envia-se o codigo de status
+apropriado e envia-se mensagem de erro amigável*/
     async find(req: Request, res: Response) {
         try {
 
@@ -34,6 +44,10 @@ class CampeonatoController{
         }
     }
 
+/*A partir dos dados recebidos do cliente via corpo da requisição busca-se
+todas as entidades campeonato e retorna ao cliente o código de status
+e a Entidade no formato json. Caso haja erro envia-se o codigo de status
+apropriado e envia-se mensagem de erro amigavel*/
     async findAll(req: Request, res: Response) {
         try {
             
@@ -46,6 +60,10 @@ class CampeonatoController{
         }
     }
 
+/*A partir dos dados recebidos do cliente via corpo da requisição altera-se
+a entidade campeonato apartir do Id e retorna ao cliente o código de status
+e a Entidade no formato json. Caso haja erro envia-se o codigo de status
+apropriado e envia-se mensagem de erro amigável*/
     async update(req: Request, res: Response) {
         try {
 
@@ -60,7 +78,11 @@ class CampeonatoController{
             return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({error: 'An error occurred'});
         }
     }
-
+    
+/*A partir dos dados recebidos do cliente via corpo da requisição apaga-se
+a entidade jogador apartir do Id e retorna ao cliente o código de status
+e a Entidade no formato json. Caso haja erro envia-se o codigo de status
+apropriado e envia-se mensagem de erro amigável*/
     async delete(req: Request, res: Response) {
         try {
         
