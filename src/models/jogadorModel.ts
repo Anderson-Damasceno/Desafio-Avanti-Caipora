@@ -63,3 +63,5 @@ class JogadorModel {
 }
 
 export { JogadorModel };
+
+// Obs.: Os dados do tipo Date devem ser preenchidos no formato ISO 8601 - YYYY-MM-DDTHH:MM:SS.000Z
